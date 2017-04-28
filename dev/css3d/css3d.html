@@ -1,0 +1,168 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AnLorXen - CSS 3D</title>
+  <meta charset="utf-8" />
+  <link href="css/css3d.css" rel="stylesheet" />
+  <script src="js/css3d.js"></script>
+  <script src="js/utility.js"></script>
+</head>
+<body>
+
+  <div class="ctrls">
+
+    <div class="ctrls-group">
+      <button class="ctrls-content" data-con="color">Color</button>
+      <button class="ctrls-content" data-con="photo">Photo</button>
+      <button class="ctrls-content" data-con="video">Video</button>
+    </div>
+    <div class="ctrls-group" data-group="scale">
+      <p>Scale</p>
+      <div class="ctrls-group-plane" data-axis="x">
+        <span>X</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="scale-x-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="scale-x-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+      <div class="ctrls-group-plane" data-axis="y">
+        <span>Y</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="scale-y-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="scale-y-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+      <div class="ctrls-group-plane" data-axis="z">
+        <span>Z</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="scale-z-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="scale-z-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+    </div>
+
+
+    <div class="ctrls-group" data-group="translate">
+      <p>Translate</p>
+      <div class="ctrls-group-plane" data-axis="x">
+        <span>X</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="trans-x-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="trans-x-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+      <div class="ctrls-group-plane" data-axis="y">
+        <span>Y</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="trans-y-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="trans-y-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+      <div class="ctrls-group-plane" data-axis="z">
+        <span>Z</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="trans-z-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="trans-z-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+    </div>
+
+
+
+    <div class="ctrls-group" data-group="rotate">
+      <p>Rotate</p>
+      <div class="ctrls-group-plane" data-axis="x">
+        <span>X</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="rotate-x-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="rotate-x-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+      <div class="ctrls-group-plane" data-axis="y">
+        <span>Y</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="rotate-y-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="rotate-y-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+      <div class="ctrls-group-plane" data-axis="z">
+        <span>Z</span>
+        <div class="ctrls-group-plane-range">
+          <input class="ctrls-range" id="rotate-z-slider" type="range" />
+        </div>
+        <input class="ctrls-text" id="rotate-z-text" type="text" />
+        <button class="ctrls-reset"></button>
+      </div>
+
+      <div class="ctrls-group-presets">
+        <button class="ctrls-preset" id="preset-top"
+                data-x="-90" data-y="0" data-z="0">
+          <span>Top</span>
+        </button>
+        <button class="ctrls-preset" id="preset-bottom"
+                data-x="90" data-y="0" data-z="0">
+          <span>Bottom</span>
+        </button>
+        <button class="ctrls-preset" id="preset-front"
+                data-x="0" data-y="0" data-z="0">
+          <span>Front</span>
+        </button>
+        <button class="ctrls-preset" id="preset-back"
+                data-x="0" data-y="180" data-z="0">
+          <span>Back</span>
+        </button>
+        <button class="ctrls-preset" id="preset-right"
+                data-x="0" data-y="-90" data-z="0">
+          <span>Right</span>
+        </button>
+        <button class="ctrls-preset" id="preset-left"
+                data-x="0" data-y="90" data-z="0">
+          <span>Left</span>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="panel">
+      <figure class="panel-fig color-front"
+              data-face="front">
+        <span>Front</span>
+      </figure>
+      <figure class="panel-fig color-back"
+              data-face="back">
+        <span>Back</span>
+      </figure>
+      <figure class="panel-fig color-top"
+              data-face="top">
+        <span>Top</span>
+      </figure>
+      <figure class="panel-fig color-bottom"
+              data-face="bottom">
+        <span>Bottom</span>
+      </figure>
+      <figure class="panel-fig color-right"
+              data-face="right">
+        <span>Right</span>
+      </figure>
+      <figure class="panel-fig color-left"
+              data-face="left">
+        <span>Left</span>
+      </figure>
+    </div>
+  </div>
+
+</body>
+</html>
+
