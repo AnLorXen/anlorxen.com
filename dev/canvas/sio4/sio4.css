@@ -1,0 +1,38 @@
+
+
+html, body {
+   height: 100%;
+   margin: 0px 0px 0px 0px;
+   width: 100%;
+}
+body {
+   background-image: radial-gradient(#000000 0%, #000020 80%) ;
+   color: #E0E0FF;
+   overflow: hidden;
+}
+
+#cvTest {
+}
+
+#dvControls {
+   left: 10px;
+   padding: 3px 3px 3px 3px;
+   position: absolute;
+   top: 10px;
+}
+.clsCtrlBtn {
+   border: none;
+   border-radius: 3px;
+   font-family: Georgia;
+   font-size: 11px;
+   font-weight: bold;
+   opacity: 0.7;
+}
+.clsCtrlBtn:hover {
+   cursor: pointer;
+   opacity: 0.95;
+}
+
+#dvImgPreload {
+   display: none;
+}
