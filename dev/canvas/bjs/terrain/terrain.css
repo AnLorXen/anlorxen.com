@@ -1,0 +1,20 @@
+
+
+html, body, .cvTest {
+   height: 100%;
+   margin: 0;
+   overflow: hidden;
+   padding: 0;
+   width: 100%;
+}
+body {
+/*
+  background-image: radial-gradient(#000000 0%, #000020 80%) ;
+  color: #E0E0FF;
+*/
+}
+
+.cvTest {
+  touch-action: none;
+}
+
