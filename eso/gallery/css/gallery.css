@@ -1,0 +1,58 @@
+﻿
+html, body, #container {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #00000F;
+  margin: 0px 0px 0px 0px;
+  overflow: hidden;
+}
+
+
+.header {
+}
+
+.gallery {
+  background-color: #333333;
+  padding: 0px 20px 0px 20px;
+  position: relative;
+  text-align: center;
+}
+.gallery div {
+}
+
+.gallery-left {
+  background-color: #00AA00;
+  outline: 1px solid green;
+  /*position: absolute;*/
+  width: 20px;
+}
+
+.gallery-center {
+  overflow: hidden;
+  /*position: absolute;*/
+}
+#gallery-center-img {
+}
+
+.gallery-right {
+  background-color: #0000AA;
+  outline: 1px solid green;
+  /*position: absolute;*/
+  width: 20px;
+}
+
+
+.thumbs {
+  background-color: #664444;
+  bottom: 0px;
+  height: 200px;
+  /*margin: 15px auto 0px auto;*/
+  position: absolute;
+}
+
+
+
+
