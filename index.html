@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html>
+<head>
+  <title>AnLorXen</title>
+  <link href="home/css/index.css" rel="stylesheet" />
+  <script src="home/js/jquery-2.1.4.js"></script>
+  <script src="home/js/Sphere.js"></script>
+  <script src="home/js/index.js"></script>
+  <script src="home/js/utility.js"></script>
+  <script src="home/data/colordata.js"></script>
+</head>
+<body>
+  <div id="container">
+    <canvas id="canvas"></canvas>
+    <ul id="title">
+      <li>A</li>
+      <li>n</li>
+      <li>L</li>
+      <li>o</li>
+      <li>r</li>
+      <li>X</li>
+      <li>e</li>
+      <li>n</li>
+    </ul>
+    <ul id="menu">
+      <li>
+        <a href="dev/dev.html">Development</a>
+      </li>
+      <li>
+        <a href="eso/eso.html">Elder Scrolls Online</a>
+      </li>
+    </ul>
+    <div id="info">
+      <ul class="info-tabs">
+        <li class="info-tab activetab"><a id="info-tab-01">Tab1</a></li>
+        <li class="info-tab"><a id="info-tab-02">Tab2</a></li>
+        <li class="info-tab"><a id="info-tab-03">Tab3</a></li>
+      </ul>
+      <div>
+        <div class="info-pane activepane" id="info-pane-01">
+          <div class='info-refresh'>
+            <div class='info-refresh-cat'>
+              <span id='refresh-btn-cat'>Refresh</span>
+            </div>
+            <div class='info-refresh-ctrls'>
+              <div class='info-refresh-btn activebtn' id='refresh-btn-on'>
+                <span>On</span>
+              </div>
+              <div class='info-refresh-btn' id='refresh-btn-off'>
+                <span>Off</span>
+              </div>
+            </div>
+          </div>
+          <div class="info-palette">
+            <div class="info-palette-select">
+              <select></select>
+            </div>
+            <div class="info-palette-swatches"></div>
+          </div>
+        </div>
+        <div class="info-pane" id="info-pane-02"></div>
+        <div class="info-pane" id="info-pane-03"></div>
+        <div class="info-status">
+          <span>FPS:</span><span id="info-status-fps">00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
