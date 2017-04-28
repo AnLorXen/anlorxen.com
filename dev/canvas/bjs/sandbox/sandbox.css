@@ -1,0 +1,128 @@
+
+
+html, body, .cvScene {
+   height: 100%;
+   margin: 0;
+   overflow: hidden;
+   padding: 0;
+   width: 100%;
+}
+body {
+/*
+  background-image: radial-gradient(#000000 0%, #000020 80%) ;
+  color: #E0E0FF;
+*/
+}
+
+
+.head {
+  background-color: rgba(75, 75, 75, 0.6);
+  border-bottom: 2px solid rgb(75, 75, 75);
+  color: #D0D0D0;
+  font-family: Verdana;
+  font-size: 13px;
+  height: 17px;
+  padding: 3px 5px 2px 5px;
+  position: absolute;
+  text-shadow: 1px 1px 0px #000000;
+  top: 0px;
+  width: 100%;
+}
+
+
+.invisible {
+  display: none;
+}
+
+.cvScene {
+  touch-action: none;
+}
+
+
+.ctrls {
+  background-color: #2B2B2B;
+  border-color: #000000;
+  border-radius: 7px;
+  border-width: 2px;
+  bottom: 30px;
+  color: #D0D0D0;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  height: 650px;
+  left: 30px;
+  padding: 3px 3px 3px 5px;
+  position: absolute;
+  width: 250px;
+}
+
+
+.ctrls-av {
+  margin: 15px 0px 0px 0px;
+  position: relative;
+}
+
+.ctrls-av-3way {
+  margin: 5px 0px 0px 0px;
+  position: relative;
+}
+
+.ctrls-av-3way-title {
+  font-size: 12px;
+  margin: 0px 0px 0px 0px;
+  padding: 3px 0px 0px 3px;
+}
+
+.ctrls-av-3way-axis {
+  height: 22px;
+  margin: 2px 0px 0px 0px;
+  position: relative;
+}
+
+.ctrls-av-3way-axis-head {
+  font-weight: bold;
+  padding: 4px 0px 0px 3px;
+  width: 14px;
+}
+.ctrls-av-3way-x-head {
+  color: #FF2020;
+}
+.ctrls-av-3way-y-head {
+  color: #20FF20;
+}
+.ctrls-av-3way-z-head {
+  color: #2020FF;
+}
+
+.ctrls-av-3way-axis-btns {
+  background-image: url("../img/up_down.png");
+  border: 1px solid #000;
+  height: 20px;
+  left: 16px;
+  position: absolute;
+  top: 0px;
+  width: 15px;
+}
+
+.ctrls-av-3way-axis-up {
+}
+.ctrls-av-3way-axis-down {
+}
+
+.ctrls-av-3way-axis-text {
+  left: 32px;
+  position: absolute;
+  top: 0px;
+}
+
+.ctrls-av-3way-axis-input {
+  background-color: #D0D0D0;
+  border: 1px solid #000;
+  color: #2B2B2B;
+  height: 17px;
+  padding: 3px 0px 0px 2px;
+  width: 95px;
+}
+
+
+
+

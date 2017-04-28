@@ -1,0 +1,169 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <title>AnLorXen - Sandbox</title>
+  <link href="css/sandbox.css" rel="stylesheet" type="text/css">
+  <script src="../_js/babylon_2.4a.js"></script>
+  <script src="js/sandbox.js"></script>
+</head>
+
+<body>
+  <canvas class="cvScene">No canvas is displayed.</canvas>
+  <div class="head">Something here</div>
+  <div class="ctrls invisible">
+    <div class="ctrls-av">
+      
+      <div class="ctrls-av-3way">
+        <p class="ctrls-av-3way-title">Position</p>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-x-head">X</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div class="ctrls-av-pos-x-up"></div>
+            <div class="ctrls-av-pos-x-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input" 
+                   id="ctrls-av-pos-x-text" 
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-y-head">Y</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div id="ctrls-av-pos-y-up"></div>
+            <div id="ctrls-av-pos-y-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input"
+                   id="ctrls-av-pos-y-text"
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-z-head">Z</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div class="ctrls-av-pos-z-up"></div>
+            <div class="ctrls-av-pos-z-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input"
+                   id="ctrls-av-pos-z-text"
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+      </div>
+      <div class="ctrls-av-3way">
+        <p class="ctrls-av-3way-title">Size</p>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-x-head">X</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div class="ctrls-av-size-x-up"></div>
+            <div class="ctrls-av-size-x-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input"
+                   id="ctrls-av-size-x-text"
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-y-head">Y</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div class="ctrls-av-size-y-up"></div>
+            <div class="ctrls-av-size-y-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input"
+                   id="ctrls-av-size-y-text"
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-z-head">Z</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div class="ctrls-av-size-z-up"></div>
+            <div class="ctrls-av-size-z-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input"
+                   id="ctrls-av-size-z-text"
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+      </div>
+      <div class="ctrls-av-3way">
+        <p class="ctrls-av-3way-title">Rotation</p>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-x-head">X</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div class="ctrls-av-rot-x-up"></div>
+            <div class="ctrls-av-rot-x-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input"
+                   id="ctrls-av-rot-x-text"
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-y-head">Y</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div class="ctrls-av-rot-y-up"></div>
+            <div class="ctrls-av-rot-y-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input"
+                   id="ctrls-av-rot-y-text"
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+        <div class="ctrls-av-3way-axis">
+          <div class="ctrls-av-3way-axis-head">
+            <span class="ctrls-av-3way-z-head">Z</span>
+          </div>
+          <div class="ctrls-av-3way-axis-btns">
+            <div class="ctrls-av-rot-z-up"></div>
+            <div class="ctrls-av-rot-z-down"></div>
+          </div>
+          <div class="ctrls-av-3way-axis-text">
+            <input class="ctrls-av-3way-axis-input"
+                   id="ctrls-av-rot-z-text"
+                   type="text" />
+          </div>
+          <div class="ctrls-av-3way-axis-foot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
