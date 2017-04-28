@@ -1,0 +1,116 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>AnLorXen - Spheremaker</title>
+    <link href="css/spheremaker.css" rel="stylesheet" />
+    <script src="js/Sphere.js"></script>
+    <script src="js/spheremaker.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <canvas id="canvas"></canvas>
+      <div id="panel">
+        <div class="panel-section panel-header">
+          <p class="panel-header-title">Color</p>
+          <div class="panel-toggle" id="panel-base-toggle"></div>
+        </div>
+        <div class="panel-section panel-content">
+          <div class="panel-input">
+            <input class="panel-slider panel-r" id="panel-base-r" type="range" />
+            <input class="panel-slider panel-g" id="panel-base-g" type="range" />
+            <input class="panel-slider panel-b" id="panel-base-b" type="range" />
+            <input class="panel-slider panel-a" id="panel-base-a" type="range" />
+          </div>
+          <div class="panel-output">
+            <div class="panel-swatch" id="panel-base-swatch"></div>
+            <div class="panel-text">
+              <p class="panel-hex" id="panel-base-hex">#000000</p>
+              <p class="panel-rgba" id="panel-base-rgba">rgba(0, 0, 0, 1)</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-section panel-header">
+          <p class="panel-header-title">Gradient</p>
+          <div class="panel-toggle" id="panel-gradient-toggle"></div>
+        </div>
+        <div class="panel-section panel-content">
+          <div class="panel-info">
+            <span class="panel-info-prop">Stop:</span>
+            <span>1</span>
+            <span class="panel-info-prop">Offset:</span>
+            <span>0.0</span>
+          </div>
+          <hr class="panel-spacer" />
+          <div class="panel-input">
+            <input class="panel-slider panel-r" id="panel-gradient1-r" type="range" />
+            <input class="panel-slider panel-g" id="panel-gradient1-g" type="range" />
+            <input class="panel-slider panel-b" id="panel-gradient1-b" type="range" />
+            <input class="panel-slider panel-a" id="panel-gradient1-a" type="range" />
+          </div>
+          <div class="panel-output">
+            <div class="panel-swatch" id="panel-gradient1-swatch"></div>
+            <div class="panel-text">
+              <p class="panel-hex" id="panel-gradient1-hex">#000000</p>
+              <p class="panel-rgba" id="panel-gradient1-rgba">rgba(0, 0, 0, 1)</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-section panel-content">
+          <div class="panel-info">
+            <span class="panel-info-prop">Stop:</span>
+            <span>2</span>
+            <span class="panel-info-prop">Offset:</span>
+            <span>0.5</span>
+          </div>
+          <hr class="panel-spacer" />
+          <div class="panel-input">
+            <input class="panel-slider panel-r" id="panel-gradient2-r" type="range" />
+            <input class="panel-slider panel-g" id="panel-gradient2-g" type="range" />
+            <input class="panel-slider panel-b" id="panel-gradient2-b" type="range" />
+            <input class="panel-slider panel-a" id="panel-gradient2-a" type="range" />
+          </div>
+          <div class="panel-output">
+            <div class="panel-swatch" id="panel-gradient2-swatch"></div>
+            <div class="panel-text">
+              <p class="panel-hex" id="panel-gradient2-hex">#000000</p>
+              <p class="panel-rgba" id="panel-gradient2-rgba">rgba(0, 0, 0, 1)</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-section panel-content">
+          <div class="panel-info">
+            <span class="panel-info-prop">Stop:</span>
+            <span>3</span>
+            <span class="panel-info-prop">Offset:</span>
+            <span>1.0</span>
+          </div>
+          <hr class="panel-spacer" />
+          <div class="panel-input">
+            <input class="panel-slider panel-r" id="panel-gradient3-r" type="range" />
+            <input class="panel-slider panel-g" id="panel-gradient3-g" type="range" />
+            <input class="panel-slider panel-b" id="panel-gradient3-b" type="range" />
+            <input class="panel-slider panel-a" id="panel-gradient3-a" type="range" />
+          </div>
+          <div class="panel-output">
+            <div class="panel-swatch" id="panel-gradient3-swatch"></div>
+            <div class="panel-text">
+              <p class="panel-hex" id="panel-gradient3-hex">#000000</p>
+              <p class="panel-rgba" id="panel-gradient3-rgba">rgba(0, 0, 0, 1)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-section panel-footer">
+          <div class="panel-footer-btn" id="panel-footer-btn-01"></div>
+          <div class="panel-footer-btn" id="panel-footer-btn-02"></div>
+          <div class="panel-footer-btn" id="panel-footer-btn-03"></div>
+          <div class="panel-footer-btn" id="panel-footer-btn-04"></div>
+          <div class="panel-footer-btn" id="panel-footer-btn-05"></div>
+        </div>
+
+
+      </div>
+    </div>
+  </body>
+</html>
