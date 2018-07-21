@@ -5,18 +5,19 @@ var AnLorXen = function () {
   var 
     cfMap, docMap, stateMap,
     initPage, resizeCanvas, bindEvents, handleTabSwap, 
-    buildSpheres, spheres, color, rgba, i, element, 
+    buildSpheres, color, rgba, i, element, 
     startAnim, stopAnim, runAnim, countFps, 
-    initPanels, setRefresh, setPaletteSwatches, setColorShift;
-
+    initPanels, setPaletteSwatches, 
+    setRefresh, setColorShift, shiftId, shiftPalette, 
+    navLocation, navToPage;
 
 
   cfMap = {
     "count": 16,
     "friction": 0.85,
-    "spring": 0.0275,
+    "spring": 0.0275, 
+    "shiftDelay": 800, 
 
-    "initialColor": { "r": 0, "g": 0, "b": 0, "a": 1 },
     "initialGradient": {
       "stops": [
         { "r": 192, "g": 192, "b": 192, "a": 0.85 },
@@ -29,9 +30,10 @@ var AnLorXen = function () {
   docMap = {
     "canvas": document.getElementById("canvas"),
     "ctx": document.getElementById("canvas").getContext("2d"),
+
     "title": $("#title"),
     "titleItems": $("#title li"),
-    "menu": $("#menu"), 
+
     "info": $("#info"),
     "infoTabs": $(".info-tabs li"), 
     "infoTab1": $("#info-tab-01"),
@@ -43,16 +45,21 @@ var AnLorXen = function () {
     "infoPane2": $("#info-pane-02"),
     "infoPane3": $("#info-pane-03"),
 
-    "refreshBtns": $(".info-refresh-btn"),
     "refreshCat": $("#refresh-btn-cat"),
     "refreshOn": $("#refresh-btn-on"),
     "refreshOff": $("#refresh-btn-off"),
 
+    "shiftCat": $("#shift-btn-cat"),
+    "shiftOn": $("#shift-btn-on"),
+    "shiftOff": $("#shift-btn-off"),
+
     "paletteSelect": $(".info-palette-select select")[0],
     "paletteSwatches": $(".info-palette-swatches"),    
-    //"paletteSwatch": $(".info-palette-swatches .info-palette-swatch"),
 
-    "infoFps": $("#info-status-fps")
+    "infoFps": $("#info-status-fps"), 
+
+    "actNav": document.getElementById("act-btn-nav"), 
+    "actInfo": document.getElementById("act-btn-info")
   };
 
   stateMap = {
@@ -69,12 +76,14 @@ var AnLorXen = function () {
     },
 
     "color": {
-      "palette": 0,
+      "palette": 0, 
+      "shifting": false, 
       "swatchCount": 16
     },
 
     "mouse": AnLorXen.utility.mouse(docMap.canvas)
   };
+
 
   buildSpheres = function () {
     for (var i = 0; i < cfMap.count; i += 1) {
@@ -86,12 +95,6 @@ var AnLorXen = function () {
       }));
 
       stateMap.spheres.forEach(function (_sphere, _idx) {
-        //_sphere.setColor(
-        //  AnLorXen.palettes[0].colors[_idx].r,
-        //  AnLorXen.palettes[0].colors[_idx].g,
-        //  AnLorXen.palettes[0].colors[_idx].b,
-        //  AnLorXen.palettes[0].colors[_idx].a
-        //);
         cfMap.initialGradient.stops.forEach(function (_stop, _stopIdx) {
           _sphere.setGradient(_stopIdx, _stop.r, _stop.g, _stop.b, _stop.a);
         });
@@ -99,10 +102,11 @@ var AnLorXen = function () {
     }
   };
 
-  initPanels = function () {
 
+  initPanels = function () {
+    var opt;
     AnLorXen.palettes.forEach(function (_palette, _idx) {
-      var opt = document.createElement("option");
+      opt = document.createElement("option");
       opt.text = _palette.name;
       opt.value = _idx;
       docMap.paletteSelect.add(opt, null);
@@ -119,36 +123,25 @@ var AnLorXen = function () {
     docMap.paletteSwatch = docMap.paletteSwatches.find(".info-palette-swatch");
 
     setPaletteSwatches();
-
   };
 
+
   setPaletteSwatches = function () {
+    var c; 
     for (i = 0; i < docMap.paletteSwatch.length; i += 1) {
-      rgba = "rgba("
-        + AnLorXen.palettes[stateMap.color.palette].colors[i].r + ", "
-        + AnLorXen.palettes[stateMap.color.palette].colors[i].g + ", "
-        + AnLorXen.palettes[stateMap.color.palette].colors[i].b + ", "
-        + AnLorXen.palettes[stateMap.color.palette].colors[i].a + ")";
+      c = AnLorXen.palettes[stateMap.color.palette].colors[i];
+      rgba = "rgba(" + c.r + ", " + c.g + ", " + c.b + ", " + c.a + ")";
       docMap.paletteSwatch[i].style.backgroundColor = rgba;
     }
   };
 
-  setColorShift = function (_bool) {
-    stateMap.color.shifting = _bool;
-    if (_bool) {
-      docMap.shiftCat.addClass("active");
-      docMap.shiftBtns.addClass("active");
-    } else {
-      docMap.shiftCat.removeClass("active");
-      docMap.shiftBtns.removeClass("active");
-    }
-  };
 
   startAnim = function () {
     if (!stateMap.requestId) {
       runAnim();
     }
   };
+
   stopAnim = function () {
     if (stateMap.requestId) {
       window.cancelAnimationFrame(stateMap.requestId);
@@ -164,8 +157,9 @@ var AnLorXen = function () {
     docMap.infoFps.html("00");
   };
 
-  runAnim = function () {
 
+  runAnim = function () {
+    var c;
     docMap.infoFps.html(countFps());
 
     if (stateMap.refresh) {
@@ -176,38 +170,27 @@ var AnLorXen = function () {
 
     stateMap.spheres.forEach(function (_sphere, _index) {
       if (_index === 0) {
-
-        //if (stateMap.color.shifting) {
-        //  for (i = 0; i < stateMap.color.colorVel; i += 1) {
-        //    color = AnLorXen.palettes[stateMap.color.palette].colors.shift();
-        //    AnLorXen.palettes[stateMap.color.palette].colors.push(color);
-        //  }
-        //}
-
+        // accelerate sphere[0] towards mouse cursor
         _sphere.setVel(
           _sphere.velX() + (stateMap.mouse.x - _sphere.x()) * cfMap.spring, 
           _sphere.velY() + (stateMap.mouse.y - _sphere.y()) * cfMap.spring, 
           0);
       } else {
+        // accelerate sphere[index] towards sphere[index - 1]
         _sphere.setVel(
           _sphere.velX() + (stateMap.spheres[_index - 1].x() - _sphere.x()) * cfMap.spring, 
           _sphere.velY() + (stateMap.spheres[_index - 1].y() - _sphere.y()) * cfMap.spring, 
           0);
-        //_sphere.setPos(_sphere.x(), _sphere.y() + _index * 0.3, 0);
       }
+      // apply friction to all spheres
       _sphere.setVel(
         _sphere.velX() * cfMap.friction,
         _sphere.velY() * cfMap.friction,
         0
       );
 
-      _sphere.setColor(
-        AnLorXen.palettes[stateMap.color.palette].colors[_index].r,
-        AnLorXen.palettes[stateMap.color.palette].colors[_index].g,
-        AnLorXen.palettes[stateMap.color.palette].colors[_index].b,
-        AnLorXen.palettes[stateMap.color.palette].colors[_index].a
-      );
-
+      c = AnLorXen.palettes[stateMap.color.palette].colors[_index];
+      _sphere.setColor(c.r, c.g, c.b, c.a);
       _sphere.move();
       _sphere.draw(docMap.ctx);
     });    
@@ -233,6 +216,7 @@ var AnLorXen = function () {
     };
   })();
 
+
   handleTabSwap = function (_tab) {
     docMap.infoTabs.removeClass("activetab");
     docMap.infoPanes.removeClass("activepane");
@@ -240,15 +224,44 @@ var AnLorXen = function () {
     docMap["infoPane" + _tab].addClass("activepane");
   };
 
+
   setRefresh = function (_bool) {
     stateMap.refresh = _bool;
-    docMap.refreshBtns.removeClass("activebtn");
     if (_bool) {
       docMap.refreshOn.addClass("activebtn");
+      docMap.refreshOff.removeClass("activebtn");
     } else {
+      docMap.refreshOn.removeClass("activebtn");
       docMap.refreshOff.addClass("activebtn");
     }
   };
+
+  
+  setColorShift = function (_bool) {
+    stateMap.color.shifting = _bool;
+    if (_bool) {
+      docMap.shiftOn.addClass("activebtn");
+      docMap.shiftOff.removeClass("activebtn");
+      shiftId = window.setInterval(shiftPalette, cfMap.shiftDelay);
+    } else {
+      docMap.shiftOn.removeClass("activebtn");
+      docMap.shiftOff.addClass("activebtn");
+      window.clearInterval(shiftId);
+    }
+  };
+
+
+  shiftPalette = function() {
+    color = AnLorXen.palettes[stateMap.color.palette].colors.pop();
+    AnLorXen.palettes[stateMap.color.palette].colors.unshift(color);
+    setPaletteSwatches();
+  }
+
+
+  navToPage = function(){
+    window.location = navToPage;
+  };
+
 
   resizeCanvas = function () {
     docMap.ctx.canvas.height = window.innerHeight;
@@ -264,13 +277,12 @@ var AnLorXen = function () {
     window.addEventListener("keydown", function (_event) {
       if (_event.which === 65) { // A
         docMap.title.show(400);
-        docMap.menu.show(400);
       }
       if (_event.which === 69) { // E
 
       }
       if (_event.which === 76) { // L
-
+        setColorShift(!stateMap.color.shifting);
       }
       if (_event.which === 78) { // N
         docMap.info.toggle(400);
@@ -283,7 +295,6 @@ var AnLorXen = function () {
       }
       if (_event.which === 88) { // X
         docMap.title.hide();
-        docMap.menu.hide();
         docMap.info.hide();
       }
     });
@@ -336,6 +347,16 @@ var AnLorXen = function () {
       setRefresh(false);
     });
 
+    docMap.shiftCat.on("mousedown", function () {
+      setColorShift(!stateMap.color.shifting);
+    });
+    docMap.shiftOn.on("mousedown", function () {
+      setColorShift(true);
+    });
+    docMap.shiftOff.on("mousedown", function () {
+      setColorShift(false);
+    });
+
     docMap.paletteSelect.addEventListener("change", function () {
       stateMap.color.palette = docMap.paletteSelect.selectedIndex;
       setPaletteSwatches();
@@ -344,7 +365,20 @@ var AnLorXen = function () {
       _event.preventDefault();
     }, true);
 
+    docMap.actNav.addEventListener("click", function(_evt){
+      _evt.preventDefault();
+      navLocation = _evt.target.dataset.href;
+
+      $("body").fadeOut(600, function(){
+        window.location.href = navLocation;
+      });
+    });
+    docMap.actInfo.addEventListener("click", function(){
+      docMap.info.toggle(400);
+    });
+
   };
+
 
   initPage = function () {
 
@@ -358,6 +392,7 @@ var AnLorXen = function () {
   initPage();
 
 };
+
 
 window.addEventListener("load", function () {
   AnLorXen();
