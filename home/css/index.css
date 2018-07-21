@@ -6,64 +6,34 @@ html, body, #container {
 
 body {
   background-color: #00000F;
-  /*background-color: #F0F0FF;*/
   overflow: hidden;
+  user-select: none;
 
   -webkit-user-select: none;
 }
 
-#container {
-}
 
 #title {
-  /*display: none;*/
   left: 30px;
   margin: 0px 0px 0px 0px;
   position: absolute;
   top: 30px;
+  user-select: none;
   z-index: 10;
 
   -webkit-user-select: none;
 }
   #title li {
-    color: #2C2C55;
     cursor: default;
     display: inline-block;
-    font-family: 'Viner Hand ITC', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Wendy One', sans-serif;
     font-size: 72px;
     list-style-type: none;
     padding: 0px 7px 0px 7px;
-    text-shadow: 5px 5px 15px #7562FF;
-
-    -webkit-user-select: none;
+    text-shadow: 
+      5px 5px 15px #7562FF, 
+      -1px -1px 3px rgba(116, 98, 255, 0.5);
   }
-
-#menu {
-  display: none;
-  left: 45px;
-  margin: 0px 0px 0px 0px;
-  position: absolute;
-  top: 150px;
-  z-index: 10;
-}
-  #menu li {
-    font-family: 'Bradley Hand ITC';
-    font-size: 24px;
-    font-weight: bold;
-    list-style-type: none;
-    padding: 7px 0px 7px 0px;
-  }
-    #menu li a {
-      color: #52527B;
-      cursor: pointer;
-      text-decoration: none;
-    }
-      #menu li a:visited {
-        color: #52527B;
-      }
-      #menu li a:hover {
-        color: #7878AF;
-      }
 
 
 #canvas {
@@ -77,10 +47,10 @@ body {
   background-color: rgba(0, 0, 15, 0.4);
   border: 2px solid #303030;
   border-radius: 3px;
-  bottom: 15px;
+  bottom: 21px;
   display: none;
   height: 375px;
-  left: 15px;
+  left: 21px;
   padding: 9px 5px 5px 5px;
   position: absolute;
   width: 250px;
@@ -141,7 +111,9 @@ body {
 }
 
 
-.info-refresh {
+
+
+.info-section {
   height: 30px;
   /*outline: 1px solid red;*/
   margin: 20px 0px 0px 0px;
@@ -149,7 +121,7 @@ body {
   position: relative;
 }
 
-.info-refresh-cat {
+.info-cat {
   display: inline-block;
   font-weight: bold;
   height: 23px;
@@ -157,18 +129,18 @@ body {
   /*outline: 1px solid green;*/
   padding: 7px 0px 0px 15px;
   position: absolute;
-  width: 100px;
+  width: 100px;  
 }
-  .info-refresh-cat span {
-    cursor: pointer;
-    font-size: 18px;
+  .info-cat span {
+      cursor: pointer;
+      font-size: 18px;  
   }
-    .info-refresh-cat span:hover {
+    .info-cat span:hover {
       color: #7878AF;
     }
 
 
-.info-refresh-ctrls {
+.info-ctrls {
   display: inline-block;
   height: 28px;
   right: 11px;
@@ -177,8 +149,8 @@ body {
   position: absolute;
   width: 91px;
 }
-
-.info-refresh-btn {
+  
+.info-btn {
   border: 2px solid #303030;
   border-radius: 3px;
   color: #303030;
@@ -193,15 +165,15 @@ body {
   top: 4px;
   width: 33px;
 }
-  .info-refresh-btn:hover {
+  .info-btn:hover {
     border: 2px solid #52527B;
     color: #7878AF;
   }
 
-#refresh-btn-on {
+.info-on {
   left: 5px;
 }
-#refresh-btn-off {
+.info-off {
   right: 5px;
 }
 
@@ -299,7 +271,20 @@ body {
 
 
 
-
+.act-btn{
+  cursor: pointer;
+  height: 11px;
+  left: 5px;
+  position: absolute;
+  width: 11px;
+  z-index: 10;
+}
+#act-btn-nav{
+  top: 5px;
+}
+#act-btn-info{
+  bottom: 5px;
+}
 
 
 
