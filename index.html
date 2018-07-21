@@ -3,6 +3,8 @@
 <html>
 <head>
   <title>AnLorXen</title>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
   <link href="home/css/index.css" rel="stylesheet" />
   <script src="home/js/jquery-2.1.4.js"></script>
   <script src="home/js/Sphere.js"></script>
@@ -23,17 +25,6 @@
       <li>e</li>
       <li>n</li>
     </ul>
-    <ul id="menu">
-      <li>
-        <a href="links/links.html">Links</a>
-      </li>
-      <li>
-        <a href="dev/dev.html">Development</a>
-      </li>
-      <li>
-        <a href="eso/eso.html">Elder Scrolls Online</a>
-      </li>
-    </ul>
     <div id="info">
       <ul class="info-tabs">
         <li class="info-tab activetab"><a id="info-tab-01">Tab1</a></li>
@@ -42,19 +33,35 @@
       </ul>
       <div>
         <div class="info-pane activepane" id="info-pane-01">
-          <div class='info-refresh'>
-            <div class='info-refresh-cat'>
+
+          <div class='info-section'>
+            <div class='info-cat'>
               <span id='refresh-btn-cat'>Refresh</span>
             </div>
-            <div class='info-refresh-ctrls'>
-              <div class='info-refresh-btn activebtn' id='refresh-btn-on'>
+            <div class='info-ctrls info-refresh'>
+              <div class='info-btn info-on activebtn' id='refresh-btn-on'>
                 <span>On</span>
               </div>
-              <div class='info-refresh-btn' id='refresh-btn-off'>
+              <div class='info-btn info-off' id='refresh-btn-off'>
                 <span>Off</span>
               </div>
             </div>
           </div>
+
+          <div class='info-section'>
+            <div class='info-cat'>
+              <span id='shift-btn-cat'>Color Shift</span>
+            </div>
+            <div class='info-ctrls info-shift'>
+              <div class='info-btn info-on' id='shift-btn-on'>
+                <span>On</span>
+              </div>
+              <div class='info-btn info-off activebtn' id='shift-btn-off'>
+                <span>Off</span>
+              </div>
+            </div>
+          </div>
+
           <div class="info-palette">
             <div class="info-palette-select">
               <select></select>
@@ -69,6 +76,12 @@
         </div>
       </div>
     </div>
+    <div 
+      class="act-btn" 
+      data-href="home/enav/enav.html" 
+      id="act-btn-nav">
+    </div>
+    <div class="act-btn" id="act-btn-info"></div>
   </div>
 </body>
 </html>
